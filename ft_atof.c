@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ato.c                                           :+:      :+:    :+:   */
+/*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:59:12 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/18 19:06:52 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/18 19:07:35 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "libft/libft.h"
+#include "fractol.h"
 
 void ft_numerr()
 {
@@ -73,11 +72,3 @@ double	ft_atof(char *str)
 	}
 	return (flag * d_total);
 }
-
-// int main(int argc, char *argv[]){
-// 	if (argc < 1)
-// 		return 0;
-// 	double f = ft_atof(argv[1]);
-// 	printf("%.16f",f);
-// 	return 0;
-// }

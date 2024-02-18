@@ -6,7 +6,7 @@
 #    By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 15:22:14 by soljeong          #+#    #+#              #
-#    Updated: 2024/02/18 19:06:00 by soljeong         ###   ########.fr        #
+#    Updated: 2024/02/18 20:23:40 by soljeong         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,9 @@ NAME	=	fractol
 
 SRCS	=  fractol.c\
 			ft_atof.c\
-			mlx_utils.c
+			mlx_utils.c\
+			mandelbrot.c\
+			julia.c
 
 OBJS = $(SRCS:.c=.o)
 SUBDIRS = libft

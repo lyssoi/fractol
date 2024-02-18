@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:57:57 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/18 19:02:05 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:23:01 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,5 @@ void	my_mlx_init(t_data *data);
 void ft_numerr();
 int	ft_isspace(int c);
 double	ft_atof(char *str);
+void	julia_init(int argc, char *argv[],t_data *data);
+void	mandelbrot_init(int argc, t_data *data);

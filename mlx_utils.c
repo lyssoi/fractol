@@ -30,6 +30,7 @@ int	mouse_hook(int mousecode, int x, int y, t_data *data)
 	{
 		data->zoom = data->zoom * 1.1;
 	}
+	draw_fractol(data);
 	return (0);
 }
 
