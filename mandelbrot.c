@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 20:22:39 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/18 20:23:16 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/19 11:00:40 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	mandelbrot_init(int argc, t_data *data)
 	data->fractoltype = T_MANDELBROT;
 }
 
-
 int	mandelbrot(double h, double w, t_data*data)
 {
 	t_com	c;
@@ -30,8 +29,8 @@ int	mandelbrot(double h, double w, t_data*data)
 	iter = 0;
 	z.x = 0;
 	z.y = 0;
-	c.x = (w - WIN_WIDTH/2)/WIN_WIDTH * (data->zoom) * 4;
-	c.y = (h - WIN_HEIGHT/2)/WIN_HEIGHT* (data->zoom) * 4;
+	c.x = (w - WIN_WIDTH / 2) / WIN_WIDTH * (data->zoom) * 4;
+	c.y = (h - WIN_HEIGHT / 2) / WIN_HEIGHT * (data->zoom) * 4;
 	while ((z.x * z.x) + (z.y * z.y) < 4 && iter < ITERMAX)
 	{
 		tmpx = (z.x * z.x) - (z.y * z.y);
@@ -41,4 +40,3 @@ int	mandelbrot(double h, double w, t_data*data)
 	}
 	return (iter);
 }
-

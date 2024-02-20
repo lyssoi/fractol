@@ -1,11 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mlx_utils.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 12:00:48 by soljeong          #+#    #+#             */
+/*   Updated: 2024/02/19 13:56:17 by soljeong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	char *dst;
-	
-	dst = data->addr + (y * data -> line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	char	*dst;
+	int		pixel;
+
+	pixel = y * data -> line_length + x * (data->bits_per_pixel / 8);
+	dst = data->addr + pixel;
+	*(unsigned int *)dst = color;
 }
 
 int	key_hook(int keycode, t_data *data)
@@ -36,12 +50,17 @@ int	mouse_hook(int mousecode, int x, int y, t_data *data)
 
 void	my_mlx_init(t_data *data)
 {
-	if (!(data->mlx = mlx_init()))
-		exit(1); // 포인터 초기화
-	if (!(data->win = mlx_new_window(data->mlx,800,800,"fractol")))
-		exit(1); // 생성할 윈도우 가리키는 포인터
-	if (!(data->img = mlx_new_image(data->mlx, 800, 800))) // 메모리에 새 이미지를 만든다.
+	data->mlx = mlx_init();
+	if (!data->mlx)
 		exit(1);
-	if (!(data->addr = mlx_get_data_addr(data->img,&(data->bits_per_pixel), &data->line_length, &data->endian)))// 이미지 주소 할당
+	data->win = mlx_new_window(data->mlx, 800, 800, "fractol");
+	if (!data->win)
+		exit(1);
+	data->img = mlx_new_image(data->mlx, 800, 800);
+	if (!data->img)
+		exit(1);
+	data->addr = mlx_get_data_addr(data->img, &(data->bits_per_pixel), \
+	&data->line_length, &data->endian);
+	if (!data->addr)
 		exit(1);
 }

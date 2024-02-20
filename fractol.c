@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 20:24:18 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/18 20:30:40 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/19 14:00:13 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,15 @@ int	exit_hook(void)
 void	ft_inputerror(void)
 {
 	ft_printf("Please enter 'julia' or 'mandelbrot' as the second argument,"
-	"and after 'julia', please enter num1 and num2."
-	"And do not enter anything else.\n");
+		" and after 'julia', enter num1 and num2."
+		" and do not enter anything else.\n");
 	exit(1);
 }
 
-void ft_parse(int argc, char *argv[], t_data *data)
+void	ft_parse(int argc, char *argv[], t_data *data)
 {
+	if (argc <= 1)
+		ft_inputerror();
 	if (argc > 4)
 		ft_inputerror();
 	if (ft_strcmp(argv[1], "julia") == 0)
@@ -64,7 +66,6 @@ void ft_parse(int argc, char *argv[], t_data *data)
 		ft_inputerror();
 }
 
-
 int	main(int argc, char *argv[])
 {
 	t_data	data;
@@ -74,14 +75,12 @@ int	main(int argc, char *argv[])
 	data.z = &z;
 	data.c = &c;
 	data.zoom = 1;
-	ft_parse(argc,argv,&data);
-	// ./fractol만했을때 세그폴트남!
+	ft_parse(argc, argv, &data);
 	my_mlx_init(&data);
 	draw_fractol(&data);
 	mlx_key_hook(data.win, key_hook, &data);
 	mlx_mouse_hook(data.win, mouse_hook, &data);
 	mlx_hook(data.win, 17, 0, exit_hook, 0);
 	mlx_loop(data.mlx);
-	return(0);
+	return (0);
 }
-
